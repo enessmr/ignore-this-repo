@@ -2,7 +2,7 @@ name: Commit spam bot
 
 on:
   schedule:
-    - cron: '*/5 * * * *'  # Every 5 minutes
+    - cron: '*/1 * * * *'  # Every 1 minute
   workflow_dispatch:
 
 permissions:
@@ -23,7 +23,7 @@ jobs:
 
       - name: Commit 5 times
         run: |
-          for i in {1..5}; do
+          for i in {1..10}; do
             echo "a" >> spam.txt
             git add spam.txt
             git commit -m "Add 'a' to spam.txt at $(date) - commit #$i" || echo "No changes to commit"
